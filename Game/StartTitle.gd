@@ -1,5 +1,4 @@
 extends Control
-
 onready var player = get_node("/root/GlobalSprite")
 
 func _ready():
@@ -15,13 +14,12 @@ func _on_StartGame_pressed():
 	
 	get_node("/root/Global").setUsername(username)
 	print("global username: ", get_node("/root/Global").getUsername())
-	
 	get_tree().change_scene("res://World.tscn")
 
 
 func _on_Player1_pressed():
 	print("Player 1 Selected")
-	player.mytexture = preload("res://Player/Player2Sheet.png")
+	player.mytexture = preload("res://Player/Player1Sheet.png")
 
 func _on_Player2_pressed():
 	print("Player 2 Selected")
