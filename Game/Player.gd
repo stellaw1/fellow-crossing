@@ -1,9 +1,12 @@
-extends KinematicBody2D
+extends KinematicBody2D 
+
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
+
 var velocity = Vector2.ZERO
 const MAX_SPEED = 80
 const ACCELERATION = 500

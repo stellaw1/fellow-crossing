@@ -1,5 +1,7 @@
 extends Control
 
+onready var player = get_node("/root/GlobalSprite")
+
 func _ready():
 	var args = OS.get_cmdline_args()
 	# if server is passed, we dont want to show the start 
@@ -15,7 +17,17 @@ func _on_StartGame_pressed():
 	print("global username: ", get_node("/root/Global").getUsername())
 	
 	get_tree().change_scene("res://World.tscn")
-	
-func _on_player1_pressed():
+
+
+func _on_Player1_pressed():
 	print("Player 1 Selected")
-	#set player to player1
+	player.mytexture = preload("res://Player/Player2Sheet.png")
+
+func _on_Player2_pressed():
+	print("Player 2 Selected")
+	player.mytexture = preload("res://Player/Player2Sheet.png")
+
+
+func _on_Player3_pressed():
+	print("Player 3 Selected")
+	player.mytexture = preload("res://Player/Player3Sheet.png")

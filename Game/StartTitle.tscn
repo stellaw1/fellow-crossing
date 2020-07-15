@@ -133,4 +133,7 @@ margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Start Game"
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Players/P1/Player1" to="." method="_on_Player1_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Players/P2/Player2" to="." method="_on_Player2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Players/P3/Player3" to="." method="_on_Player3_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartGame/StartGame" to="." method="_on_StartGame_pressed"]
