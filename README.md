@@ -24,3 +24,8 @@ If you want to run the game on the local server, set the `IP` constant to "127.0
 ```
 
 In the chat box type `/name kanav` to change your name to `kanav` and then `/connect` to connect to server.
+
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
