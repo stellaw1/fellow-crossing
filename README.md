@@ -1,6 +1,6 @@
 <p align="center"> <img src="https://imgur.com/d4drRso.png" align="center" alt="Logo" width="486" height="313"></p>
 
-# fellow-crossing
+# Fellow Crossing
 An Animal Crossing inspired game designed to replicate office environments to encourage socialization between coworkers
 
 ## Instructions
