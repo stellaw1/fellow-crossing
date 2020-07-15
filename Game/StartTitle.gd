@@ -8,7 +8,7 @@ func _ready():
 		get_tree().change_scene("res://World.tscn")
 
 func _on_StartGame_pressed():
-	var username = $HBoxContainer/LineEdit.text
+	var username = $MarginContainer/VBoxContainer/Name/Name/Name/EnterName.text
 	print("start title username:", username)
 	
 	get_node("/root/Global").setUsername(username)
