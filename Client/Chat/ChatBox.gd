@@ -6,7 +6,7 @@ onready var inputField = $VBoxContainer/HBoxContainer/LineEdit
 
 const PORT = 3489
 const MAX_PLAYERS = 16
-const SPAWN_POINT = Vector2(152, 84)
+var SPAWN_POINT = Vector2(152, 84)
 #const IP = "13.232.157.0"
 const IP = "127.0.0.1"
 
@@ -31,6 +31,11 @@ func _ready():
 	get_tree().connect("network_peer_connected", self, "user_entered")
 	get_tree().connect("network_peer_disconnected", self, "user_exited")
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
+	var args = OS.get_cmdline_args()
+	if len(args) > 0 and args[0] == "--server":
+		user_name = "bot"
+		SPAWN_POINT = Vector2(-1000, -1000)
+		command_host()
 
 func text_entered(text):
 	if text != "":
@@ -43,7 +48,7 @@ func text_entered(text):
 				command_name(text.substr(5))
 		else:
 			var id = get_tree().get_network_unique_id()
-			rpc('recieve_message', id, user_name + '+' + text)
+			rpc('recieve_message', id, user_name, text)
 		inputField.text = ""
 
 func change_group(value):
@@ -53,6 +58,9 @@ func change_group(value):
 
 func add_message(username, text, group=0):
 	chatLog.bbcode_text += '\n[color=' + groups[group].color + ']' +  '[' + username + ']: ' + text + '[/color]'
+
+sync func recieve_message(id, user, msg):
+	add_message(user, msg, 0)
 
 func _input(event):
 	if event is InputEventKey:
@@ -129,10 +137,10 @@ remote func user_entered(connected_player_id):
 	var local_player_id = get_tree().get_network_unique_id()
 	if not(get_tree().is_network_server()):
 		rpc_id(1, '_request_player_info', local_player_id, connected_player_id)
-	add_message("someone", "<joined the game>", 2)
+
 
 func user_exited(id):
-	add_message("someone", "<left the game>", 2)
+	add_message(players[id].name, "<left the game>", 2)
 	players[id].sprite.queue_free()
 	players.erase(id)
 
@@ -144,11 +152,6 @@ func _server_disconnected():
 func leave_room():
 	get_tree().set_network_peer(null)
 
-sync func recieve_message(id, msg):
-	var user = msg.substr(0, msg.find('+'))
-	var text = msg.substr(msg.find('+') + 1)
-	add_message(user, text, 0)
-
 remote func _request_player_info(request_from_id, player_id):
 	if get_tree().is_network_server():
 		rpc_id(request_from_id, '_send_player_info', player_id, players[player_id])
@@ -159,6 +162,7 @@ remote func _send_player_info(id, info):
 			if player_id != id:
 				rpc_id(id, '_send_player_info', player_id, players[player_id])
 	if not(id in players):
+		add_message(info.name, "<joined the game>", 2)
 		players[id] = info
 		var new_player = Player.instance()
 		new_player.set_network_master(id)
@@ -170,7 +174,8 @@ remote func _send_player_info(id, info):
 		print("add node")
 		$'../../YSort/'.add_child(new_player)
 
-remote func set_player_name(id, name):
+func set_player_name(id, name):
+	add_message("server", "\"" + players[id].name + "\" changed their name to \"" + name + "\"" )
 	players[id].name = name
 	players[id].sprite.get_node("Label").text = name
 
