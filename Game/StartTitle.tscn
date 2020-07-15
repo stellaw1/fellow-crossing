@@ -93,6 +93,7 @@ margin_left = 64.0
 margin_right = 280.0
 margin_bottom = 189.0
 texture_normal = ExtResource( 5 )
+stretch_mode = 2
 
 [node name="P2" type="CenterContainer" parent="MarginContainer/VBoxContainer/Players"]
 margin_left = 348.0
@@ -106,6 +107,7 @@ margin_left = 64.0
 margin_right = 280.0
 margin_bottom = 189.0
 texture_normal = ExtResource( 4 )
+stretch_mode = 3
 
 [node name="P3" type="CenterContainer" parent="MarginContainer/VBoxContainer/Players"]
 margin_left = 696.0
@@ -119,6 +121,7 @@ margin_left = 86.0
 margin_right = 258.0
 margin_bottom = 189.0
 texture_normal = ExtResource( 1 )
+stretch_mode = 3
 
 [node name="StartGame" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 538.0

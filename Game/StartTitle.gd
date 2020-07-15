@@ -25,7 +25,6 @@ func _on_Player2_pressed():
 	print("Player 2 Selected")
 	player.mytexture = preload("res://Player/Player2Sheet.png")
 
-
 func _on_Player3_pressed():
 	print("Player 3 Selected")
 	player.mytexture = preload("res://Player/Player3Sheet.png")
