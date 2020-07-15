@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Fellow Crossing"
-run/main_scene="res://World.tscn"
+run/main_scene="res://StartTitle.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://Global.gd"
 
 [display]
 

@@ -8,8 +8,8 @@
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Chat/ChatBox.tscn" type="PackedScene" id=8]
-[ext_resource path="res://World/CoffeeRoom.tscn" type="PackedScene" id=9]
-[ext_resource path="res://World/Cinema.tscn" type="PackedScene" id=10]
+[ext_resource path="res://World.gd" type="Script" id=11]
+[ext_resource path="res://icon.png" type="Texture" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -486,9 +486,10 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/z_index = 0
 
 [node name="World" type="Node2D"]
+script = ExtResource( 11 )
 
 [node name="BackgroundGrass" type="Sprite" parent="."]
-position = Vector2( -844.697, -888 )
+position = Vector2( -848, -888 )
 scale = Vector2( 6.61468, 8.42217 )
 texture = ExtResource( 3 )
 offset = Vector2( 160, 90 )
@@ -515,11 +516,27 @@ zoom = Vector2( 0.5, 0.5 )
 process_mode = 0
 smoothing_enabled = true
 
-[node name="CoffeeRoom" parent="." instance=ExtResource( 9 )]
-position = Vector2( -503.968, -89.4544 )
+[node name="SwitchCoffeeRoom" type="Button" parent="."]
+modulate = Color( 0.231373, 1, 0, 1 )
+margin_left = -560.0
+margin_top = -160.0
+margin_right = -432.0
+margin_bottom = -32.0
+icon = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Cinema" parent="." instance=ExtResource( 10 )]
-position = Vector2( 971.4, -122.212 )
+[node name="SwitchCinema" type="Button" parent="."]
+modulate = Color( 0, 0.764706, 1, 1 )
+margin_left = 904.0
+margin_top = -192.0
+margin_right = 1035.0
+margin_bottom = -63.0
+icon = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -575,3 +592,5 @@ margin_bottom = -16.0
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 6 )]
 visible = false
+[connection signal="pressed" from="SwitchCoffeeRoom" to="." method="_on_SwitchCoffeeRoom_pressed"]
+[connection signal="pressed" from="SwitchCinema" to="." method="_on_SwitchCinema_pressed"]

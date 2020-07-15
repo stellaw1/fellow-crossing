@@ -26,11 +26,25 @@ var self_data = { name = user_name, position = SPAWN_POINT  }
 var group_index = 0
 
 func _ready():
+	print("world title username:", get_node("/root/Global").getUsername())
+	connectStart()
+	
 	inputField.connect("text_entered", self, "text_entered")
 	get_tree().connect("connected_to_server", self, "enter_room")
 	get_tree().connect("network_peer_connected", self, "user_entered")
 	get_tree().connect("network_peer_disconnected", self, "user_exited")
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
+
+func connectStart():
+	var name = get_node("/root/Global").getUsername()
+	
+	user_name = name
+	self_data.name = name
+	if mainPlayer != null:
+		mainPlayer.label.text = name
+		rpc('set_player_name', get_tree().get_network_unique_id(), name)
+	command_connect()
+
 
 func text_entered(text):
 	if text != "":
