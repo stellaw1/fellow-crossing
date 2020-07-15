@@ -1,12 +1,14 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
+[ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=3]
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=4]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=5]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Chat/ChatBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://MusicRegion.py" type="Script" id=9]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -482,10 +484,14 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 27.5933, 27.7725 )
+
 [node name="World" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="BackgroundGrass" type="Sprite" parent="."]
-position = Vector2( -224, -136 )
+position = Vector2( -224.203, -136 )
 scale = Vector2( 2.475, 2.48889 )
 texture = ExtResource( 3 )
 offset = Vector2( 160, 90 )
@@ -496,7 +502,10 @@ region_rect = Rect2( 0, 0, 320, 180 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 3, 0, 3, 6, 0, 3, 65539, 0, 65539, 65541, 0, 4, 65542, 0, 196616, 65543, 0, 7, 131075, 0, 196612, 131076, 0, 196609, 131077, 0, 262151, 131079, 0, 262148, 131080, 0, 196609, 131081, 0, 196609, 131082, 0, 196609, 131083, 0, 196609, 131084, 0, 196609, 131085, 0, 196610, 196613, 0, 196612, 196614, 0, 8, 196615, 0, 196615, 262146, 0, 0, 262147, 0, 2, 262150, 0, 65539, 327682, 0, 65536, 327683, 0, 65538, 327686, 0, 65539, 393218, 0, 65536, 393219, 0, 65538, 393222, 0, 196612, 393223, 0, 196609, 393224, 0, 196609, 393225, 0, 196609, 393226, 0, 196609, 393227, 0, 196609, 393228, 0, 7, 458754, 0, 65536, 458755, 0, 65538, 458764, 0, 65539, 524288, 0, 196608, 524289, 0, 196609, 524290, 0, 262150, 524291, 0, 262149, 524292, 0, 196609, 524293, 0, 196609, 524294, 0, 196609, 524295, 0, 196609, 524296, 0, 196609, 524297, 0, 196609, 524298, 0, 196609, 524299, 0, 196609, 524300, 0, 262151, 589826, 0, 65536, 589827, 0, 65538, 589836, 0, 65539, 655362, 0, 131072, 655363, 0, 65543, 655372, 0, 131075, 720899, 0, 131075 )
+tile_data = PoolIntArray( 3, 0, 3, 6, 0, 3, 65539, 0, 65539, 65541, 0, 4, 65542, 0, 196616, 65543, 0, 7, 131075, 0, 196612, 131076, 0, 196609, 131077, 0, 262151, 131079, 0, 65539, 196613, 0, 196612, 196614, 0, 196609, 196615, 0, 196615, 196619, 0, 4, 196620, 0, 196609, 196621, 0, 196609, 196622, 0, 7, 262155, 0, 65539, 262158, 0, 65539, 327691, 0, 65539, 327694, 0, 65539, 393227, 0, 196612, 393228, 0, 196609, 393229, 0, 196609, 393230, 0, 196615, 589836, 0, 196611, 720899, 0, 196611 )
+
+[node name="Grass" parent="DirtPathTileMap" instance=ExtResource( 7 )]
+position = Vector2( 239.99, 49.3998 )
 
 [node name="CliffeTileMap" type="TileMap" parent="."]
 tile_set = SubResource( 49 )
@@ -542,7 +551,16 @@ position = Vector2( 112, 112 )
 position = Vector2( 96, 112 )
 
 [node name="Grass5" parent="YSort/Grass" instance=ExtResource( 7 )]
-position = Vector2( 240, 96 )
+position = Vector2( 241.296, 65.5532 )
+
+[node name="Grass" parent="YSort/Grass/Grass5" instance=ExtResource( 7 )]
+position = Vector2( 0.0657501, 16.8212 )
+
+[node name="Grass" parent="YSort/Grass/Grass5/Grass" instance=ExtResource( 7 )]
+position = Vector2( 0, 17.0589 )
+
+[node name="Grass2" parent="YSort/Grass/Grass5/Grass" instance=ExtResource( 7 )]
+position = Vector2( -0.43187, 30.8787 )
 
 [node name="Grass4" parent="YSort/Grass" instance=ExtResource( 7 )]
 position = Vector2( 144, 112 )
@@ -559,3 +577,17 @@ margin_right = -621.0
 margin_bottom = -16.0
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 6 )]
+
+[node name="MusicRegion" type="Area2D" parent="."]
+position = Vector2( 208.27, 80.9939 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicRegion"]
+shape = SubResource( 50 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicRegion"]
+[connection signal="body_entered" from="MusicRegion" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="MusicRegion" to="." method="_on_Area2D_body_exited"]
