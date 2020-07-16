@@ -93,6 +93,14 @@ func move_state(delta):
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
 	
+	if Input.is_action_just_pressed("heart"):
+		var heart_position = position + Vector2(0, -25)
+		var heart = load("res://Decorations/Heart.tscn").instance()
+		heart.position = heart_position
+		heart.name = v4()
+		$'/root/World/YSort/Decorations/'.add_child(heart)
+		get_node("../../CanvasLayer/ChatBox").broadcast_decoration('heart', heart.name, heart_position)
+	
 	if Input.is_action_just_pressed("place_cupboard"):
 		var cupboard_position = position + direction * 25
 		var cupboard = load("res://Decorations/Cupboard.tscn").instance()
@@ -116,6 +124,7 @@ func attack_state(delta):
 
 func attack_animation_finished():
 	state = MOVE
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
