@@ -8,6 +8,11 @@
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Chat/ChatBox.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Decorations/Cupboard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/Button.gd" type="Script" id=10]
+[ext_resource path="res://World.gd" type="Script" id=11]
+[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://UI/DecorationLineEdit.gd" type="Script" id=13]
 [ext_resource path="res://World/FenceTileset.png" type="Texture" id=9]
 [ext_resource path="res://Cinema/Video.png" type="Texture" id=10]
 [ext_resource path="res://World.gd" type="Script" id=11]
@@ -783,7 +788,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 script = ExtResource( 11 )
 
 [node name="BackgroundGrass" type="Sprite" parent="."]
-position = Vector2( -848, -888 )
+position = Vector2( -848, -887.703 )
 scale = Vector2( 6.61468, 8.42217 )
 texture = ExtResource( 3 )
 offset = Vector2( 160, 90 )
@@ -901,6 +906,11 @@ position = Vector2( 240, 32 )
 [node name="Logo" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 48, -192 )
 
+[node name="Decorations" type="YSort" parent="YSort"]
+
+[node name="Cupboard" parent="YSort/Decorations" instance=ExtResource( 9 )]
+position = Vector2( 119.624, 85.7976 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ChatBox" parent="CanvasLayer" instance=ExtResource( 8 )]
@@ -911,5 +921,29 @@ margin_bottom = -16.0
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 6 )]
 visible = false
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_left = 183.349
+margin_top = 9.19712
+margin_right = 244.349
+margin_bottom = 29.1971
+text = "Place Decoration"
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+margin_left = 12.0
+margin_top = 7.0
+margin_right = 174.0
+margin_bottom = 31.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="SwitchCoffeeRoom" to="." method="_on_SwitchCoffeeRoom_pressed"]
 [connection signal="pressed" from="SwitchCinema" to="." method="_on_SwitchCinema_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_Button_pressed"]
+[connection signal="focus_entered" from="CanvasLayer/LineEdit" to="CanvasLayer/LineEdit" method="_on_LineEdit_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/LineEdit" to="CanvasLayer/LineEdit" method="_on_LineEdit_focus_exited"]
