@@ -45,3 +45,5 @@ margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 placeholder_text = "Press TAB to change groups"
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_LineEdit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_LineEdit_focus_exited"]

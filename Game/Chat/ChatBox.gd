@@ -22,6 +22,7 @@ var groups = [
 
 var user_name = "unnamed"
 var players = { }
+var decorations = {}
 var self_data = { name = user_name, position = SPAWN_POINT  }
 var group_index = 0
 
@@ -151,6 +152,10 @@ remote func user_entered(connected_player_id):
 	var local_player_id = get_tree().get_network_unique_id()
 	if not(get_tree().is_network_server()):
 		rpc_id(1, '_request_player_info', local_player_id, connected_player_id)
+	else:
+		for decoration_id in decorations:
+			var decoration = decorations[decoration_id]
+			rpc_id(connected_player_id, 'recieve_decoration', decoration.name, decoration_id, decoration.position)
 
 
 func user_exited(id):
@@ -195,3 +200,38 @@ func set_player_name(id, name):
 
 func update_position(id, position):
 	players[id].position = position
+
+func broadcast_decoration(decoration_name, decoration_id,  new_position):
+	rpc('recieve_decoration', decoration_name, decoration_id, new_position)
+
+remote func recieve_decoration(decoration_name, decoration_id, new_positon):
+	if get_tree().is_network_server():
+		decorations[decoration_id] = {name=decoration_name, id=decoration_id, position=new_positon }
+		pass
+	var resource_path = ""
+	match decoration_name:
+		'cupboard':
+			resource_path = "res://Decorations/Cupboard.tscn"
+		'chair':
+			resource_path = "res://Decorations/Chair.tscn"
+	if resource_path != "":
+		var res = load(resource_path).instance()
+		res.position = new_positon
+		res.name = decoration_id
+		$'/root/World/YSort/Decorations/'.add_child(res)
+
+func broadcast_destroy(decoration_id):
+	rpc('destroy_decoration', decoration_id)
+
+remote func destroy_decoration(decoration_id):
+	if get_tree().is_network_server():
+		decorations.erase(decoration_id)
+	get_node('/root/World/YSort/Decorations/' + decoration_id).queue_free()
+
+
+func _on_LineEdit_focus_entered():
+	mainPlayer.is_any_lineedit1_active = true
+
+
+func _on_LineEdit_focus_exited():
+	mainPlayer.is_any_lineedit1_active = false
