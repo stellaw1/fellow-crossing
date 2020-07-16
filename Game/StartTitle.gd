@@ -19,6 +19,7 @@ func _on_StartGame_pressed():
 
 func _on_Player1_pressed():
 	print("Player 1 Selected")
+	
 	player.mytexture = preload("res://Player/Player1Sheet.png")
 
 func _on_Player2_pressed():
