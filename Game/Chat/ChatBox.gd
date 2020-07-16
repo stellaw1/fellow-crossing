@@ -7,8 +7,8 @@ onready var inputField = $VBoxContainer/HBoxContainer/LineEdit
 const PORT = 3489
 const MAX_PLAYERS = 16
 var SPAWN_POINT = Vector2(152, 84)
-const IP = "13.232.157.0"
-#const IP = "127.0.0.1"
+#const IP = "13.232.157.0"
+const IP = "127.0.0.1"
 
 var mainPlayer = null
 
@@ -212,8 +212,8 @@ remote func recieve_decoration(decoration_name, decoration_id, new_positon):
 	match decoration_name:
 		'cupboard':
 			resource_path = "res://Decorations/Cupboard.tscn"
-		'chair':
-			resource_path = "res://Decorations/Chair.tscn"
+		'shelf':
+			resource_path = "res://Decorations/Shelf.tscn"
 	if resource_path != "":
 		var res = load(resource_path).instance()
 		res.position = new_positon

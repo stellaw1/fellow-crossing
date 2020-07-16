@@ -101,13 +101,21 @@ func move_state(delta):
 		$'/root/World/YSort/Decorations/'.add_child(cupboard)
 		get_node("../../CanvasLayer/ChatBox").broadcast_decoration('cupboard', cupboard.name, cupboard_position)
 
+func get_resource(decoration_name):
+	match decoration_name:
+		'cupboard':
+			return 'Cupboard'
+		'shelf':
+			return 'Shelf'
+
 func place_decoration(decoration_name):
-	var decoration_position = position + direction * 25
-	var decoration = load("res://Decorations/Cupboard.tscn").instance()
-	decoration.position = decoration_position
-	decoration.name = v4()
-	$'/root/World/YSort/Decorations/'.add_child(decoration)
-	get_node("../../CanvasLayer/ChatBox").broadcast_decoration('cupboard', decoration.name, decoration_position)
+	if decoration_name in ['cupboard', 'shelf']:
+		var decoration_position = position + direction * 25
+		var decoration = load("res://Decorations/" + get_resource(decoration_name) +".tscn").instance()
+		decoration.position = decoration_position
+		decoration.name = v4()
+		$'/root/World/YSort/Decorations/'.add_child(decoration)
+		get_node("../../CanvasLayer/ChatBox").broadcast_decoration(decoration_name, decoration.name, decoration_position)
 
 
 func attack_state(delta):

@@ -9,7 +9,7 @@ height = 10.0
 [node name="Bush" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -4 )
+position = Vector2( 0, -3.91841 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
