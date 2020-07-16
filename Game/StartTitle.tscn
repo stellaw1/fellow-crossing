@@ -138,16 +138,15 @@ texture_pressed = ExtResource( 8 )
 stretch_mode = 3
 
 [node name="StartGame" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 518.0
+margin_top = 511.0
 margin_right = 1040.0
 margin_bottom = 561.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer/StartGame"]
-margin_top = 11.0
 margin_right = 1040.0
-margin_bottom = 54.0
+margin_bottom = 50.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Start Game"
