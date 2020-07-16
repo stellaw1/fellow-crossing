@@ -22,6 +22,9 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Global.gd"
+GlobalWorld="*res://World.gd"
+GlobalSprite="*res://Player/Sprite.gd"
+StartTitle="*res://StartTitle.gd"
 
 [display]
 
