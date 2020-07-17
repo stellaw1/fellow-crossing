@@ -26,7 +26,7 @@ Fellow Crossing is a video game that encourages socialization between coworkers.
 ## Instructions to play game
 
 ### Remote server
-To play the multiplayer version of the game, please install the [Mumble client](https://www.mumble.com/mumble-download.php) at the default location. Then, head to [here](https://stellaw1.itch.io/fellow-crossing) to download an executable version of our game. Please download `windowsApp.exe` and `windows.App.pck` for Windows or `macApp.dmg.zip` and `macApp.pck` for Mac. Launch the executable and have fun!
+To play the multiplayer version of the game, please install the [Mumble client](https://www.mumble.com/mumble-download.php) at the default location. Then, head to [here](https://stellaw1.itch.io/fellow-crossing) to download an executable version of our game. Please download `windowsApp.exe` and `windows.App.pck` for Windows or `macApp.dmg.zip`  for Mac. Launch the executable and have fun!
 
 
 ### Local server [for debugging/ testing purposes]
