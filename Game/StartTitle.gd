@@ -14,7 +14,7 @@ func _on_StartGame_pressed():
 	
 	get_node("/root/Global").setUsername(username)
 	print("global username: ", get_node("/root/Global").getUsername())
-	get_tree().change_scene("res://World.tscn")
+	get_tree().change_scene("res://Instruction1.tscn")
 
 
 func _on_Player1_pressed():
