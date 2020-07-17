@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Chat/ChatBox.gd" type="Script" id=1]
+
+[node name="ChatBox" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -637.0
+margin_bottom = -424.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 643.0
+margin_bottom = 268.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 272.0
+margin_right = 643.0
+margin_bottom = 296.0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 43.0
+margin_bottom = 19.0
+text = "[Team]"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+margin_left = 47.0
+margin_right = 643.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Press TAB to change groups"
+[connection signal="focus_entered" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_LineEdit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_LineEdit_focus_exited"]
