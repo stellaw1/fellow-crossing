@@ -14,7 +14,7 @@
 size = 24
 font_data = ExtResource( 9 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.32549, 0.235294, 0.0980392, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -30,7 +30,7 @@ shadow_color = Color( 0.305882, 0.286275, 0.286275, 0.6 )
 shadow_size = 2
 shadow_offset = Vector2( 2, 2 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.847059, 0.72549, 0.227451, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -46,7 +46,7 @@ shadow_color = Color( 0.278431, 0.262745, 0.262745, 0.6 )
 shadow_size = 6
 shadow_offset = Vector2( 3, 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 28
 font_data = ExtResource( 9 )
 
@@ -138,7 +138,7 @@ text = "Name: "
 margin_left = 94.0
 margin_right = 146.0
 margin_bottom = 25.0
-custom_styles/normal = SubResource( 4 )
+custom_styles/normal = SubResource( 2 )
 
 [node name="CharSelect" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 392.0
@@ -223,8 +223,8 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 300, 50 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.513726, 0.345098, 0.0823529, 1 )
 text = "Start Game"
 __meta__ = {

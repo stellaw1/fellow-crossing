@@ -214,6 +214,8 @@ remote func recieve_decoration(decoration_name, decoration_id, new_positon):
 			resource_path = "res://Decorations/Cupboard.tscn"
 		'chair':
 			resource_path = "res://Decorations/Chair.tscn"
+		'heart':
+			resource_path = "res://Decorations/Heart.tscn"
 	if resource_path != "":
 		var res = load(resource_path).instance()
 		res.position = new_positon
