@@ -22,7 +22,7 @@ Fellow Crossing is a video game that encourages socialization between coworkers.
  - Python 
 
 
-## Instructions
+## Instructions to play game
 
 ### Remote server
 The game is published [here](https://stellaw1.itch.io/fellow-crossing) as downloadable executables. Please download `windowsApp.exe` and `windows.App.pck` for Windows or `macApp.dmg.zip` and `macApp.pck` for Mac. 
@@ -30,14 +30,14 @@ The game is published [here](https://stellaw1.itch.io/fellow-crossing) as downlo
 
 ### Local server [for debugging/ testing purposes]
 ##### Server
-To start the server, open terminal and run this command
+To start the server, open terminal and navigate to `fellow-crossing/godot-sqlite-1.7/Game/`. Then, run this command:
 
 ```
   /path/to/godot --path . --server
 ```
 
 ##### Client
-Ensure the `IP` constant in the file `Client/Chat/ChatBox.gd` is set to "127.0.0.1", and play the project in Godot game engine editor.
+Ensure the `IP` constant in the file `Client/Chat/ChatBox.gd` is set to "127.0.0.1". Open the `project.godot` file in `fellow-crossing/godot-sqlite-1.7/Game/` using the Godot game engine editor and play the project.
 
 
 ## License
