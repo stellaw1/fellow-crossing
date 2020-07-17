@@ -13,19 +13,20 @@ Fellow Crossing is a video game that encourages socialization between coworkers.
 
 
 ## Tools used to build this project
- - Godot game engine
+ - [Godot game engine](https://godotengine.org/download/windows)
  - SQL database
  - AWS server
  - itch io
  - Photoshop
  - Adobe Illustrator
  - Python 
+ - [Mumble](https://www.mumble.com/mumble-download.php)
 
 
 ## Instructions to play game
 
 ### Remote server
-The game is published [here](https://stellaw1.itch.io/fellow-crossing) as downloadable executables. Please download `windowsApp.exe` and `windows.App.pck` for Windows or `macApp.dmg.zip` and `macApp.pck` for Mac. 
+To play the multiplayer version of the game, please install the [Mumble client](https://www.mumble.com/mumble-download.php) at the default location. Then, head to [here](https://stellaw1.itch.io/fellow-crossing) to download an executable version of our game. Please download `windowsApp.exe` and `windows.App.pck` for Windows or `macApp.dmg.zip` and `macApp.pck` for Mac. Launch the executable and have fun!
 
 
 ### Local server [for debugging/ testing purposes]
