@@ -987,6 +987,7 @@ position = Vector2( 240, 32 )
 
 [node name="Logo" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 48, -192 )
+scale = Vector2( 2.5, 2.5 )
 
 [node name="Decorations" type="YSort" parent="YSort"]
 

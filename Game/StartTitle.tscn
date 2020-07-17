@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player3.png" type="Texture" id=1]
 [ext_resource path="res://StartTitle.gd" type="Script" id=2]
@@ -8,6 +8,47 @@
 [ext_resource path="res://player1Select.png" type="Texture" id=6]
 [ext_resource path="res://player2Select.png" type="Texture" id=7]
 [ext_resource path="res://player3Select.png" type="Texture" id=8]
+[ext_resource path="res://Fonts/FOT-Seurat Pro B.otf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.32549, 0.235294, 0.0980392, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.847059, 0.72549, 0.227451, 1 )
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color( 0.305882, 0.286275, 0.286275, 0.6 )
+shadow_size = 2
+shadow_offset = Vector2( 2, 2 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.847059, 0.72549, 0.227451, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.494118, 0.384314, 0.168627, 1 )
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_color = Color( 0.278431, 0.262745, 0.262745, 0.6 )
+shadow_size = 6
+shadow_offset = Vector2( 3, 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+font_data = ExtResource( 9 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -23,32 +64,36 @@ color = Color( 0.486275, 0.603922, 0.741176, 1 )
 polygon = PoolVector2Array( 0, 0, 336, 0, 336, 192, 0, 192 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_top = 0.00135337
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.00135
-margin_bottom = 2.0
-custom_constants/margin_right = 120
-custom_constants/margin_top = 80
-custom_constants/margin_left = 120
-custom_constants/margin_bottom = 80
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -336.0
+margin_right = 104.0
+margin_bottom = 344.0
+custom_constants/margin_right = 0
+custom_constants/margin_top = 0
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 120.0
-margin_top = 80.0
-margin_right = 1160.0
-margin_bottom = 641.0
+margin_right = 1440.0
+margin_bottom = 680.0
+size_flags_vertical = 3
+alignment = 1
 
 [node name="Logo" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_right = 1040.0
+margin_right = 1440.0
 margin_bottom = 313.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
 
 [node name="FellowCrossing" type="TextureRect" parent="MarginContainer/VBoxContainer/Logo"]
-margin_right = 1040.0
+margin_right = 1440.0
 margin_bottom = 313.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -57,80 +102,107 @@ stretch_mode = 4
 
 [node name="Name" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 317.0
-margin_right = 1040.0
-margin_bottom = 367.0
+margin_right = 1440.0
+margin_bottom = 388.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Name" type="CenterContainer" parent="MarginContainer/VBoxContainer/Name"]
-margin_left = 468.0
-margin_right = 572.0
-margin_bottom = 50.0
+margin_left = 720.0
+margin_right = 720.0
+size_flags_vertical = 0
+use_top_left = true
 
 [node name="Name" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Name/Name"]
-margin_top = 13.0
-margin_right = 104.0
-margin_bottom = 37.0
-
-[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Name/Name/Name"]
-margin_right = 42.0
-margin_bottom = 14.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "NAME:"
-
-[node name="EnterName" type="LineEdit" parent="MarginContainer/VBoxContainer/Name/Name/Name"]
-margin_left = 46.0
-margin_right = 104.0
-margin_bottom = 24.0
-
-[node name="Players" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 371.0
-margin_right = 1040.0
-margin_bottom = 507.0
+margin_left = -73.0
+margin_top = -13.0
+margin_right = 73.0
+margin_bottom = 12.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/Name/Name/Name"]
+margin_right = 90.0
+margin_bottom = 25.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.337255, 0.223529, 0.0470588, 1 )
+text = "Name: "
+
+[node name="EnterName" type="LineEdit" parent="MarginContainer/VBoxContainer/Name/Name/Name"]
+margin_left = 94.0
+margin_right = 146.0
+margin_bottom = 25.0
+custom_styles/normal = SubResource( 2 )
+
+[node name="CharSelect" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 392.0
+margin_right = 1440.0
+margin_bottom = 417.0
+size_flags_vertical = 2
+alignment = 1
+
+[node name="CharPrompt" type="Label" parent="MarginContainer/VBoxContainer/CharSelect"]
+margin_left = 564.0
+margin_right = 875.0
+margin_bottom = 25.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.337255, 0.223529, 0.0470588, 1 )
+text = "Choose your character: "
+
+[node name="Players" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_left = 538.0
+margin_top = 467.0
+margin_right = 901.0
+margin_bottom = 603.0
+size_flags_horizontal = 4
+size_flags_vertical = 2
+alignment = 1
 
 [node name="P1" type="CenterContainer" parent="MarginContainer/VBoxContainer/Players"]
-margin_right = 344.0
+margin_right = 120.0
 margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Player1" type="TextureButton" parent="MarginContainer/VBoxContainer/Players/P1"]
-margin_left = 112.0
-margin_right = 232.0
+margin_right = 120.0
 margin_bottom = 136.0
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 stretch_mode = 2
 
 [node name="P2" type="CenterContainer" parent="MarginContainer/VBoxContainer/Players"]
-margin_left = 348.0
-margin_right = 692.0
+margin_left = 124.0
+margin_right = 242.0
 margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Player2" type="TextureButton" parent="MarginContainer/VBoxContainer/Players/P2"]
-margin_left = 113.0
 margin_top = 1.0
-margin_right = 231.0
+margin_right = 118.0
 margin_bottom = 135.0
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 7 )
 stretch_mode = 3
 
 [node name="P3" type="CenterContainer" parent="MarginContainer/VBoxContainer/Players"]
-margin_left = 696.0
-margin_right = 1040.0
+margin_left = 246.0
+margin_right = 363.0
 margin_bottom = 136.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Player3" type="TextureButton" parent="MarginContainer/VBoxContainer/Players/P3"]
-margin_left = 113.0
-margin_right = 230.0
+margin_right = 117.0
 margin_bottom = 135.0
 keep_pressed_outside = true
 texture_normal = ExtResource( 1 )
@@ -138,18 +210,26 @@ texture_pressed = ExtResource( 8 )
 stretch_mode = 3
 
 [node name="StartGame" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 511.0
-margin_right = 1040.0
-margin_bottom = 561.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+margin_top = 618.0
+margin_right = 1440.0
+margin_bottom = 668.0
+size_flags_vertical = 6
+alignment = 1
 
 [node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer/StartGame"]
-margin_right = 1040.0
+margin_left = 570.0
+margin_right = 870.0
 margin_bottom = 50.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+rect_min_size = Vector2( 300, 50 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.513726, 0.345098, 0.0823529, 1 )
 text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Players/P1/Player1" to="." method="_on_Player1_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Players/P2/Player2" to="." method="_on_Player2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Players/P3/Player3" to="." method="_on_Player3_pressed"]

@@ -1,0 +1,183 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://player2.png" type="Texture" id=1]
+[ext_resource path="res://fellowcrossing.png" type="Texture" id=2]
+[ext_resource path="res://Instruction2.gd" type="Script" id=3]
+[ext_resource path="res://Fonts/FOT-Seurat Pro B.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fonts/KongtextRegular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Chat/ChatBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://player1.png" type="Texture" id=7]
+[ext_resource path="res://Cinema/Video.png" type="Texture" id=8]
+[ext_resource path="res://CoffeeRoom/Coffee.png" type="Texture" id=9]
+[ext_resource path="res://player3.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 177.931, 98.194 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 52
+extra_spacing_char = 3
+extra_spacing_space = 16
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+extra_spacing_char = -2
+extra_spacing_space = -3
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+extra_spacing_char = 3
+extra_spacing_space = 5
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+extra_spacing_top = 6
+extra_spacing_bottom = 6
+extra_spacing_char = 3
+extra_spacing_space = 5
+font_data = ExtResource( 4 )
+
+[node name="Control" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 3.85714, 3.83333 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 161.013, 96.1523 )
+shape = SubResource( 5 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
+scale = Vector2( 1, 1 )
+color = Color( 0.486275, 0.603922, 0.741176, 1 )
+polygon = PoolVector2Array( 0, 0, 336, 0, 336, 192, 0, 192 )
+
+[node name="FellowCrossing" type="TextureRect" parent="."]
+margin_left = 1016.0
+margin_top = 16.0
+margin_right = 1576.0
+margin_bottom = 329.0
+rect_scale = Vector2( 0.5, 0.5 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prompt1" type="Label" parent="."]
+margin_left = 72.0
+margin_top = 80.0
+margin_right = 1044.0
+margin_bottom = 130.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Have fun!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prompt2" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 664.0
+margin_right = 1182.0
+margin_bottom = 698.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Click anywhere to continue to game ..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prompt5" type="Label" parent="."]
+margin_left = 88.0
+margin_top = 184.0
+margin_right = 906.0
+margin_bottom = 218.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "You will see many other fellows in game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Prompt4" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 407.251
+margin_right = 788.0
+margin_bottom = 584.251
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Chat with them!
+
+Join the voice chat room
+
+Visit the music room"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player1" type="TextureRect" parent="."]
+margin_left = 144.0
+margin_top = 248.0
+margin_right = 264.0
+margin_bottom = 384.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+stretch_mode = 3
+
+[node name="Player2" type="TextureRect" parent="."]
+margin_left = 288.0
+margin_top = 248.0
+margin_right = 406.0
+margin_bottom = 382.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+stretch_mode = 3
+
+[node name="Player3" type="TextureRect" parent="."]
+margin_left = 432.0
+margin_top = 248.0
+margin_right = 550.0
+margin_bottom = 383.0
+rect_scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 10 )
+stretch_mode = 3
+
+[node name="Coffee" type="TextureRect" parent="."]
+margin_left = 552.739
+margin_top = 451.749
+margin_right = 953.739
+margin_bottom = 1074.75
+rect_scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 9 )
+stretch_mode = 3
+
+[node name="Video" type="TextureRect" parent="."]
+margin_left = 447.481
+margin_top = 552.251
+margin_right = 1113.48
+margin_bottom = 1003.25
+rect_scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 8 )
+stretch_mode = 3
+
+[node name="ChatBox" parent="." instance=ExtResource( 6 )]
+margin_left = 397.492
+margin_top = 408.498
+margin_right = -585.508
+margin_bottom = -279.502
+script = null
+[connection signal="input_event" from="Area2D" to="Area2D" method="_on_Area2D_input_event"]
