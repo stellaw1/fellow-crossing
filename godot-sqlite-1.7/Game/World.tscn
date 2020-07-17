@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Logo.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=12]
 [ext_resource path="res://UI/DecorationLineEdit.gd" type="Script" id=13]
 [ext_resource path="res://World/FenceTileset.png" type="Texture" id=14]
+[ext_resource path="res://VoiceChat.gd" type="Script" id=15]
 [ext_resource path="res://World.gd" type="Script" id=16]
 [ext_resource path="res://database.gd" type="Script" id=17]
 
@@ -863,6 +864,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="StyleBoxEmpty" id=78]
 
+[sub_resource type="RectangleShape2D" id=79]
+extents = Vector2( 55.4785, 58.2416 )
+
 [node name="World" type="Node2D"]
 script = ExtResource( 16 )
 
@@ -900,6 +904,7 @@ tile_data = PoolIntArray( -655382, 0, 0, -655381, 0, 131073, -655380, 0, 131073,
 tile_set = SubResource( 60 )
 cell_size = Vector2( 16, 16 )
 format = 1
+tile_data = PoolIntArray( -589860, 0, 0, -589859, 1, 0, -589858, 7, 0, -589856, 5, 0, -589855, 1, 0, -589854, 1, 0, -589853, 2, 0, -524324, 4, 0, -524317, 4, 0, -458788, 4, 0, -458781, 4, 0, -262180, 4, 0, -262173, 3, 0, -196644, 4, 0, -196637, 3, 0, -131108, 4, 0, -131101, 3, 0, -65572, 0, 0, -65571, 1, 0, -65570, 7, 0, -65568, 5, 0, -65567, 1, 0, -65566, 1, 0, -65565, 2, 0 )
 
 [node name="WaterTileMap" type="TileMap" parent="."]
 tile_set = SubResource( 74 )
@@ -1029,8 +1034,17 @@ script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VoiceChat" type="Area2D" parent="."]
+position = Vector2( -514.225, -83.7111 )
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoiceChat"]
+shape = SubResource( 79 )
 [connection signal="pressed" from="SwitchCoffeeRoom" to="." method="_on_SwitchCoffeeRoom_pressed"]
 [connection signal="pressed" from="SwitchCinema" to="." method="_on_SwitchCinema_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_Button_pressed"]
 [connection signal="focus_entered" from="CanvasLayer/LineEdit" to="CanvasLayer/LineEdit" method="_on_LineEdit_focus_entered"]
 [connection signal="focus_exited" from="CanvasLayer/LineEdit" to="CanvasLayer/LineEdit" method="_on_LineEdit_focus_exited"]
+[connection signal="body_entered" from="VoiceChat" to="VoiceChat" method="_on_VoiceChat_body_entered"]
+[connection signal="body_exited" from="VoiceChat" to="VoiceChat" method="_on_VoiceChat_body_exited"]

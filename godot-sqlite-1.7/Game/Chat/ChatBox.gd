@@ -7,8 +7,8 @@ onready var inputField = $VBoxContainer/HBoxContainer/LineEdit
 const PORT = 3489
 const MAX_PLAYERS = 16
 var SPAWN_POINT = Vector2(152, 84)
-#const IP = "13.232.157.0"
-const IP = "127.0.0.1"
+const IP = "13.232.157.0"
+#const IP = "127.0.0.1"
 
 var mainPlayer = null
 
